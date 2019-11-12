@@ -1,0 +1,28 @@
+---
+- name: install and uninstall tools zip, unzip, nano
+  hosts:
+    - local
+  become: yes
+  tasks:
+
+    - name: uninstall
+      package:
+        name: "{{ item }}"
+        state: absent
+      loop:
+        - unzip
+        - nano
+      tags:
+        - uninstall
+
+    - name: install
+      package:
+        name: "{{ item }}"
+        state: present
+      loop:
+        - zip
+        - unzip
+        - gzip
+        - nano
+      tags:
+        - install
