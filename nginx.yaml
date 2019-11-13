@@ -11,46 +11,46 @@
         state: present
       when: ansible_distribution == 'CentOS'
       tags:
-        - install_nginx
+        - [ never, nstall_nginx ]
 
     - name: install nginx
       package:
         name: nginx
         state: present
       tags:
-        - install_nginx
+        - [ never, install_nginx ]
 
     - name: uninstall nginx
       package:
         name: nginx
         state: absent
       tags:
-        - uninstall_nginx
+        - [ never, uninstall_nginx ]
 
     - name: stop nginx
       service:
         name: nginx
         state: stopped
       tags:
-        - stop_nginx
+        - [ never, stop_nginx ]
 
     - name: start nginx
       service:
         name: nginx
         state: started
       tags:
-        - start_nginx
+        - [ never, start_nginx ]
 
     - name: enable autostart
       service:
         name: nginx
         enabled: yes
       tags:
-        - enable_nginx
+        - [ never, enable_nginx ]
 
     - name: disable autostart
       service:
         name: nginx
         enabled: no
       tags:
-        - disable_nginx
+        - [ never, enable_nginx ]

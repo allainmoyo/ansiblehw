@@ -2,22 +2,12 @@
 PLAY [install nginx webserver] *************************************************
 
 TASK [Gathering Facts] *********************************************************
-ok: [centos2]
-ok: [centos3]
 ok: [centos1]
-
-TASK [Install EPEL repo if CentOS] *********************************************
-ok: [centos1]
-ok: [centos3]
-ok: [centos2]
-
-TASK [install nginx] ***********************************************************
-changed: [centos3]
-changed: [centos2]
-changed: [centos1]
+fatal: [centos2]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 192.168.162.6 port 22: No route to host", "unreachable": true}
+fatal: [centos3]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 192.168.162.7 port 22: No route to host", "unreachable": true}
 
 PLAY RECAP *********************************************************************
-centos1                    : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-centos2                    : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-centos3                    : ok=3    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+centos1                    : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+centos2                    : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+centos3                    : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
 
