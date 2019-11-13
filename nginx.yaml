@@ -11,21 +11,21 @@
         state: present
       when: ansible_distribution == 'CentOS'
       tags:
-        - install
+        - install_nginx
 
     - name: install nginx
       package:
         name: nginx
         state: present
       tags:
-        - install
+        - install_nginx
 
     - name: uninstall nginx
       package:
         name: nginx
         state: absent
       tags:
-        - uninstall
+        - uninstall_nginx
 
     - name: stop nginx
       service:

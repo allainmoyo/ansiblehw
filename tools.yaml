@@ -1,5 +1,5 @@
 ---
-- name: install and uninstall tools zip, unzip, nano
+- name: install and uninstall tools zip, unzip, gzip, nano
   hosts:
     - local
   become: yes
