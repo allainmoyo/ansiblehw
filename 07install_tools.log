@@ -1,29 +1,27 @@
 
-PLAY [install and uninstall tools zip, unzip, gzip, nano] **********************
+PLAY [install and uninstall tools zip, unzip, gzip, nano] ************************************
 
-TASK [Gathering Facts] *********************************************************
+TASK [Gathering Facts] ***********************************************************************
 ok: [centos2]
-ok: [centos3]
 ok: [centos1]
-fatal: [ubuntu1]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 192.168.162.4 port 22: No route to host", "unreachable": true}
+ok: [centos3]
 
-TASK [install] *****************************************************************
-ok: [centos2] => (item=zip)
-ok: [centos3] => (item=zip)
+TASK [tools : install] ***********************************************************************
 ok: [centos1] => (item=zip)
+ok: [centos3] => (item=zip)
+ok: [centos2] => (item=zip)
 changed: [centos3] => (item=unzip)
-changed: [centos2] => (item=unzip)
 ok: [centos3] => (item=gzip)
+changed: [centos2] => (item=unzip)
 ok: [centos2] => (item=gzip)
+changed: [centos3] => (item=nano)
 changed: [centos1] => (item=unzip)
 ok: [centos1] => (item=gzip)
-changed: [centos3] => (item=nano)
 changed: [centos2] => (item=nano)
 changed: [centos1] => (item=nano)
 
-PLAY RECAP *********************************************************************
+PLAY RECAP ***********************************************************************************
 centos1                    : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 centos2                    : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 centos3                    : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-ubuntu1                    : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
 

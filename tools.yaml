@@ -1,28 +1,7 @@
 ---
 - name: install and uninstall tools zip, unzip, gzip, nano
   hosts:
-    - local
+    - centos
   become: yes
-  tasks:
-
-    - name: uninstall
-      package:
-        name: "{{ item }}"
-        state: absent
-      loop:
-        - unzip
-        - nano
-      tags:
-        - uninstall
-
-    - name: install
-      package:
-        name: "{{ item }}"
-        state: present
-      loop:
-        - zip
-        - unzip
-        - gzip
-        - nano
-      tags:
-        - install
+  roles:
+    - tools

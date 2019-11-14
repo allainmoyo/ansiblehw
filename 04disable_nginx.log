@@ -1,18 +1,12 @@
 
-PLAY [install nginx webserver] *************************************************
+PLAY [install nginx webserver] ***************************************************************
 
-TASK [Gathering Facts] *********************************************************
-ok: [centos2]
-ok: [centos3]
+TASK [Gathering Facts] ***********************************************************************
 ok: [centos1]
 
-TASK [disable autostart] *******************************************************
-changed: [centos2]
+TASK [nginx : disable autostart] *************************************************************
 changed: [centos1]
-changed: [centos3]
 
-PLAY RECAP *********************************************************************
+PLAY RECAP ***********************************************************************************
 centos1                    : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-centos2                    : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
-centos3                    : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
 

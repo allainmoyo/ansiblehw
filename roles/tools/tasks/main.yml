@@ -1,0 +1,26 @@
+---
+# tasks file for tools
+# install zip, unzip, gzip, nano
+#
+
+- name: install
+  package:
+    name: "{{ item }}"
+    state: present
+  loop:
+    - zip
+    - unzip
+    - gzip
+    - nano
+  tags:
+    - [ never, install ]
+
+- name: uninstall
+  package:
+    name: "{{ item }}"
+    state: absent
+  loop:
+    - unzip
+    - nano
+  tags:
+    - [ never, uninstall ]

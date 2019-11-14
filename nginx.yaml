@@ -1,56 +1,8 @@
 ---
 - name: install nginx webserver
   hosts:
-    - centos
+    - centos1
   become: yes
-  tasks:
 
-    - name: Install EPEL repo if CentOS
-      yum:
-        name: epel-release
-        state: present
-      when: ansible_distribution == 'CentOS'
-      tags:
-        - install_nginx
-
-    - name: install nginx
-      package:
-        name: nginx
-        state: present
-      tags:
-        - install_nginx
-
-    - name: uninstall nginx
-      package:
-        name: nginx
-        state: absent
-      tags:
-        - uninstall_nginx
-
-    - name: stop nginx
-      service:
-        name: nginx
-        state: stopped
-      tags:
-        - stop_nginx
-
-    - name: start nginx
-      service:
-        name: nginx
-        state: started
-      tags:
-        - start_nginx
-
-    - name: enable autostart
-      service:
-        name: nginx
-        enabled: yes
-      tags:
-        - enable_nginx
-
-    - name: disable autostart
-      service:
-        name: nginx
-        enabled: no
-      tags:
-        - disable_nginx
+  roles:
+    - nginx

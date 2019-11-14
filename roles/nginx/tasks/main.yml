@@ -1,0 +1,71 @@
+---
+# tasks file for nginx
+#
+#
+- name: Install EPEL repo if CentOS
+  yum:
+    name: epel-release
+    state: present
+  when: ansible_distribution == 'CentOS'
+  tags: [ 'never']
+
+- name: install nginx
+  package:
+    name: nginx
+    state: present
+  tags:
+    - [ 'never', 'install_nginx' ]
+- debug:
+    msg:
+    - "stage01: Install nginx"
+
+- name: uninstall nginx
+  package:
+    name: nginx
+    state: absent
+  tags:
+    - [ 'never', 'uninstall_nginx' ]
+- debug:
+    msg:
+    - "stage06: Uninstall nginx"
+          
+- name: stop nginx
+  service:
+    name: nginx
+    state: stopped
+  tags:
+    - [ 'never', 'stop_nginx' ]
+- debug:
+    msg:
+    - "stage05: Stop nginx service"
+
+- name: start nginx
+  service:
+    name: nginx
+    state: started
+  tags:
+    - [ 'never', 'start_nginx' ]
+- debug:
+    msg:
+    - "stage02: Start nginx service"
+
+- name: enable autostart
+  service:
+    name: nginx
+    enabled: yes
+  tags:
+    - [ 'never', 'enable_nginx' ]
+- debug:
+    msg:
+    - "stage03: Enable nginx service"
+
+- name: disable autostart
+  service:
+    name: nginx
+    enabled: no
+  tags:
+    [ 'never', 'disable_nginx' ]
+- debug:
+    msg:
+    - "stage04: Disable nginx service"
+
