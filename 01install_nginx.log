@@ -1,6 +1,7 @@
 
 PLAY [install nginx webserver] ***************************************************************
 
+<<<<<<< HEAD
 TASK [Gathering Facts] ***********************************************************************
 ok: [centos1]
 
@@ -9,4 +10,15 @@ changed: [centos1]
 
 PLAY RECAP ***********************************************************************************
 centos1                    : ok=2    changed=1    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+=======
+TASK [Gathering Facts] *********************************************************
+ok: [centos1]
+fatal: [centos2]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 192.168.162.6 port 22: No route to host", "unreachable": true}
+fatal: [centos3]: UNREACHABLE! => {"changed": false, "msg": "Failed to connect to the host via ssh: ssh: connect to host 192.168.162.7 port 22: No route to host", "unreachable": true}
+
+PLAY RECAP *********************************************************************
+centos1                    : ok=1    changed=0    unreachable=0    failed=0    skipped=0    rescued=0    ignored=0   
+centos2                    : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+centos3                    : ok=0    changed=0    unreachable=1    failed=0    skipped=0    rescued=0    ignored=0   
+>>>>>>> d8aa50fca3e41ce5ffe721acdcb6fe065ff11fe9
 
